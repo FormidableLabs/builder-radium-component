@@ -1,0 +1,13 @@
+import webpack from 'webpack';
+import config from './webpack.config.babel';
+
+// **WARNING**: Mutates base configuration.
+// We do this because lodash isn't available in `production` mode.
+config.output.filename = config.output.filename
+  .replace(/\.min\.js$/, '.js');
+config.plugins = [
+  new webpack.SourceMapDevToolPlugin('[file].map')
+];
+
+// Export mutated base.
+export default config;
