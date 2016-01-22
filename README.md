@@ -100,6 +100,8 @@ settings](config/babel/.babelrc).
 ```
 $ builder help builder-radium-component
 
+builder help builder-radium-component
+
 Usage:
 
   builder <action> <task(s)>
@@ -133,10 +135,10 @@ Tasks:
     [builder-radium-component] builder run clean-dist && builder run build-dist-min && builder run build-dist-dev
 
   build-dist-dev
-    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.dev.js --colors
+    [builder-radium-component] webpack --bail --config node_modules/builder-radium-component/config/webpack/webpack.config.dev.babel.js
 
   build-dist-min
-    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.babel.js --colors
+    [builder-radium-component] webpack --bail --config node_modules/builder-radium-component/config/webpack/webpack.config.babel.js
 
   build-lib
     [builder-radium-component] builder run clean-lib && babel src -d lib --copy-files
@@ -190,13 +192,13 @@ Tasks:
     [builder-radium-component] builder concurrent hot open-demo
 
   server-dev
-    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.dev.js --colors --content-base demo
+    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.dev.babel.js --content-base demo
 
   server-hot
-    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.hot.js --colors --hot --content-base demo
+    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.hot.babel.js --hot --content-base demo
 
   server-test
-    [builder-radium-component] webpack-dev-server --port 3001 --config node_modules/builder-radium-component/config/webpack/webpack.config.test.js --colors
+    [builder-radium-component] webpack-dev-server --port 3001 --config node_modules/builder-radium-component/config/webpack/webpack.config.test.babel.js
 
   test
     [builder-radium-component] builder run npm:test
