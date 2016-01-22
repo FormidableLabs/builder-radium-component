@@ -1,28 +1,29 @@
-"use strict";
+'use strict';
+require('babel-register');
 /*
- * Karma Configuration: "coverage" version.
+ * Karma Configuration: 'coverage' version.
  *
  * This configuration is the same as basic one-shot version, just with coverage.
  */
-var path = require("path");
-var webpackCovCfg = require("../webpack/webpack.config.coverage");
+var path = require('path');
+var webpackCovCfg = require('../webpack/webpack.config.coverage.babel');
 
 // Replace with `__dirname` if using in project root.
 var ROOT = process.cwd();
 
-module.exports = function (config) {
+module.exports = function(config) {
   /* eslint-disable global-require */
-  require("./karma.conf")(config);
+  require('./karma.conf')(config);
   config.set({
-    reporters: ["spec", "coverage"],
-    webpack: webpackCovCfg,
+    reporters: ['spec', 'coverage'],
+    webpack: webpackCovCfg.default,
     coverageReporter: {
       reporters: [
-        { type: "json", file: "coverage.json" },
-        { type: "lcov" },
-        { type: "text-summary" }
+        { type: 'json', file: 'coverage.json' },
+        { type: 'lcov' },
+        { type: 'text-summary' }
       ],
-      dir: path.join(ROOT, "coverage/client")
+      dir: path.join(ROOT, 'coverage/client')
     }
   });
 };
