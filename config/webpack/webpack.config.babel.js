@@ -64,7 +64,17 @@ export default {
         // **Note**: Cannot use shorthand `'babel-loader'` or `'babel'` when
         // we are playing around with `NODE_PATH` in builder. Manually
         // resolve path.
-        loader: require.resolve('babel-loader')
+        loader: require.resolve('babel-loader'),
+        query: {
+          babelrc: false,
+          presets: ['es2015-webpack', 'stage-0', 'react'],
+          plugins: [
+            'syntax-class-properties',
+            'syntax-decorators',
+            'transform-class-properties',
+            'transform-decorators-legacy'
+          ]
+        }
       }, {
         test: /\.css$/,
         loader: require.resolve('style-loader') + '!' + require.resolve('css-loader')
