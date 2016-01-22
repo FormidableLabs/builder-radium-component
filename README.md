@@ -136,7 +136,7 @@ Tasks:
     [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.dev.js --colors
 
   build-dist-min
-    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.js --colors
+    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.babel.js --colors
 
   build-lib
     [builder-radium-component] builder run clean-lib && babel src -d lib --copy-files

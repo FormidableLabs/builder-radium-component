@@ -11,8 +11,8 @@ To use the production and development workflows, install both this package
 and the development module:
 
 ```sh
-$ npm install --save builder-react-component
-$ npm install --save-dev builder-react-component-dev
+$ npm install --save builder-radium-component
+$ npm install --save-dev builder-radium-component-dev
 ```
 
 ## Generator
@@ -25,7 +25,7 @@ archetype, you can use [builder-init][]:
 
 ```sh
 $ npm install -g builder-init
-$ builder-init builder-react-component
+$ builder-init builder-radium-component
 ```
 
 This will download this archetype, prompt you for several template data values
@@ -98,7 +98,7 @@ settings](config/babel/.babelrc).
 ## Tasks
 
 ```
-$ builder help builder-react-component
+$ builder help builder-radium-component
 
 Usage:
 
@@ -115,116 +115,116 @@ Flags: General
 Tasks:
 
   npm:postinstall
-    [builder-react-component] cd lib || builder run build-lib
+    [builder-radium-component] cd lib || builder run build-lib
 
   npm:preversion
-    [builder-react-component] builder run check
+    [builder-radium-component] builder run check
 
   npm:test
-    [builder-react-component] builder run test-frontend
+    [builder-radium-component] builder run test-frontend
 
   npm:version
-    [builder-react-component] builder run clean && builder run build && git add -A dist
+    [builder-radium-component] builder run clean && builder run build && git add -A dist
 
   build
-    [builder-react-component] builder run build-lib && builder run build-dist
+    [builder-radium-component] builder run build-lib && builder run build-dist
 
   build-dist
-    [builder-react-component] builder run clean-dist && builder run build-dist-min && builder run build-dist-dev
+    [builder-radium-component] builder run clean-dist && builder run build-dist-min && builder run build-dist-dev
 
   build-dist-dev
-    [builder-react-component] webpack --config node_modules/builder-react-component/config/webpack/webpack.config.dev.js --colors
+    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.dev.js --colors
 
   build-dist-min
-    [builder-react-component] webpack --config node_modules/builder-react-component/config/webpack/webpack.config.js --colors
+    [builder-radium-component] webpack --config node_modules/builder-radium-component/config/webpack/webpack.config.babel.js --colors
 
   build-lib
-    [builder-react-component] builder run clean-lib && babel src -d lib --copy-files
+    [builder-radium-component] builder run clean-lib && babel src -d lib --copy-files
 
   check
-    [builder-react-component] builder run lint && builder run test
+    [builder-radium-component] builder run lint && builder run test
 
   check-ci
-    [builder-react-component] builder run lint && builder run test-ci
+    [builder-radium-component] builder run lint && builder run test-ci
 
   check-cov
-    [builder-react-component] builder run lint && builder run test-cov
+    [builder-radium-component] builder run lint && builder run test-cov
 
   check-dev
-    [builder-react-component] builder run lint && builder run test-dev
+    [builder-radium-component] builder run lint && builder run test-dev
 
   clean
-    [builder-react-component] builder run clean-lib && builder run clean-dist
+    [builder-radium-component] builder run clean-lib && builder run clean-dist
 
   clean-dist
-    [builder-react-component] rimraf dist
+    [builder-radium-component] rimraf dist
 
   clean-lib
-    [builder-react-component] rimraf lib
+    [builder-radium-component] rimraf lib
 
   dev
-    [builder-react-component] builder concurrent server-dev server-test
+    [builder-radium-component] builder concurrent server-dev server-test
 
   hot
-    [builder-react-component] builder concurrent server-hot server-test
+    [builder-radium-component] builder concurrent server-hot server-test
 
   lint
-    [builder-react-component] builder concurrent lint-server lint-client lint-client-test
+    [builder-radium-component] builder concurrent lint-server lint-client lint-client-test
 
   lint-client
-    [builder-react-component] eslint --color --ext .js,.jsx -c node_modules/builder-react-component/config/eslint/.eslintrc-client src demo/*.jsx
+    [builder-radium-component] eslint --color --ext .js,.jsx -c node_modules/builder-radium-component/config/eslint/.eslintrc-client src demo/*.jsx
 
   lint-client-test
-    [builder-react-component] eslint --color --ext .js,.jsx -c node_modules/builder-react-component/config/eslint/.eslintrc-client-test src test/client
+    [builder-radium-component] eslint --color --ext .js,.jsx -c node_modules/builder-radium-component/config/eslint/.eslintrc-client-test src test/client
 
   lint-server
-    [builder-react-component] eslint --color -c node_modules/builder-react-component/config/eslint/.eslintrc-server *.js
+    [builder-radium-component] eslint --color -c node_modules/builder-radium-component/config/eslint/.eslintrc-server *.js
 
   open-demo
-    [builder-react-component] opener http://127.0.0.1:3000
+    [builder-radium-component] opener http://127.0.0.1:3000
 
   open-dev
-    [builder-react-component] builder concurrent dev open-demo
+    [builder-radium-component] builder concurrent dev open-demo
 
   open-hot
-    [builder-react-component] builder concurrent hot open-demo
+    [builder-radium-component] builder concurrent hot open-demo
 
   server-dev
-    [builder-react-component] webpack-dev-server --port 3000 --config node_modules/builder-react-component/config/webpack/demo/webpack.config.dev.js --colors --content-base demo
+    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.dev.js --colors --content-base demo
 
   server-hot
-    [builder-react-component] webpack-dev-server --port 3000 --config node_modules/builder-react-component/config/webpack/demo/webpack.config.hot.js --colors --hot --content-base demo
+    [builder-radium-component] webpack-dev-server --port 3000 --config node_modules/builder-radium-component/config/webpack/demo/webpack.config.hot.js --colors --hot --content-base demo
 
   server-test
-    [builder-react-component] webpack-dev-server --port 3001 --config node_modules/builder-react-component/config/webpack/webpack.config.test.js --colors
+    [builder-radium-component] webpack-dev-server --port 3001 --config node_modules/builder-radium-component/config/webpack/webpack.config.test.js --colors
 
   test
-    [builder-react-component] builder run npm:test
+    [builder-radium-component] builder run npm:test
 
   test-ci
-    [builder-react-component] builder run test-frontend-ci
+    [builder-radium-component] builder run test-frontend-ci
 
   test-cov
-    [builder-react-component] builder run test-frontend-cov
+    [builder-radium-component] builder run test-frontend-cov
 
   test-dev
-    [builder-react-component] builder run test-frontend-dev
+    [builder-radium-component] builder run test-frontend-dev
 
   test-frontend
-    [builder-react-component] karma start node_modules/builder-react-component/config/karma/karma.conf.js
+    [builder-radium-component] karma start node_modules/builder-radium-component/config/karma/karma.conf.js
 
   test-frontend-ci
-    [builder-react-component] karma start --browsers PhantomJS,Firefox node_modules/builder-react-component/config/karma/karma.conf.coverage.js
+    [builder-radium-component] karma start --browsers PhantomJS,Firefox node_modules/builder-radium-component/config/karma/karma.conf.coverage.js
 
   test-frontend-cov
-    [builder-react-component] karma start node_modules/builder-react-component/config/karma/karma.conf.coverage.js
+    [builder-radium-component] karma start node_modules/builder-radium-component/config/karma/karma.conf.coverage.js
 
   test-frontend-dev
-    [builder-react-component] karma start node_modules/builder-react-component/config/karma/karma.conf.dev.js
+    [builder-radium-component] karma start node_modules/builder-radium-component/config/karma/karma.conf.dev.js
 ```
 
 [builder]: https://github.com/FormidableLabs/builder
 [builder-init]: https://github.com/FormidableLabs/builder-init
 [development]: ./DEVELOPMENT.md
-[trav_img]: https://api.travis-ci.org/FormidableLabs/builder-react-component.svg
-[trav_site]: https://travis-ci.org/FormidableLabs/builder-react-component
+[trav_img]: https://api.travis-ci.org/FormidableLabs/builder-radium-component.svg
+[trav_site]: https://travis-ci.org/FormidableLabs/builder-radium-component

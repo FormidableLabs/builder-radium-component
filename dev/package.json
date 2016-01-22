@@ -1,25 +1,25 @@
 {
-  "name": "builder-react-component-dev",
+  "name": "builder-radium-component-dev",
   "version": "0.1.4",
-  "description": "Builder Archetype - React Component (Development)",
+  "description": "Builder Archetype - Radium Component (Development)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FormidableLabs/builder-react-component.git"
+    "url": "https://github.com/FormidableLabs/builder-radium-component.git"
   },
   "author": "Ryan Roemer <ryan.roemer@formidablelabs.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FormidableLabs/builder-react-component/issues"
+    "url": "https://github.com/FormidableLabs/builder-radium-component/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/builder-react-component",
+  "homepage": "https://github.com/FormidableLabs/builder-radium-component",
   "scripts": {},
   "dependencies": {
-    "babel-eslint": "^4.1.6",
+    "babel-eslint": "^5.0.0-beta6",
     "eslint": "^1.10.1",
-    "eslint-config-defaults": "^7.0.1",
-    "eslint-plugin-filenames": "^0.1.2",
+    "eslint-config-defaults": "^8.0.2",
+    "eslint-plugin-filenames": "^0.2.0",
     "eslint-plugin-react": "^3.6.2",
-    "isparta-loader": "^1.0.0",
+    "isparta-loader": "^2.0.0",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.5.2",
@@ -29,16 +29,16 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-phantomjs-shim": "^1.1.1",
     "karma-safari-launcher": "^0.1.1",
-    "karma-sauce-launcher": "^0.2.14",
-    "karma-spec-reporter": "0.0.20",
+    "karma-sauce-launcher": "^0.3.0",
+    "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.0.0",
     "mocha": "^2.2.5",
     "opener": "^1.4.1",
     "phantomjs": "^1.9.18",
     "react-hot-loader": "^1.2.8",
     "sinon": "^1.16.1",
-    "webpack-dev-server": "^1.10.0"
+    "webpack-dev-server": "^2.0.0-beta"
   },
   "devDependencies": {}
 }

@@ -25,7 +25,7 @@ To generate the usage snippet in the `README.md`, first go to a project
 that _uses_ the archetype and then run:
 
 ```sh
-$ builder help builder-react-component | egrep "^[^\[]|^$"
+$ builder help builder-radium-component | egrep "^[^\[]|^$"
 ```
 
 in any project where this archetype is installed and paste in the output.
