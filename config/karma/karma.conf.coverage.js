@@ -15,7 +15,7 @@ module.exports = function(config) {
   require('./karma.conf')(config);
   config.set({
     reporters: ['spec', 'coverage'],
-    webpack: webpackCovCfg.default,
+    webpack: webpackCovCfg,
     coverageReporter: {
       reporters: [
         { type: 'json', file: 'coverage.json' },
