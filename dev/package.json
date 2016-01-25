@@ -7,6 +7,10 @@
     "url": "https://github.com/FormidableLabs/builder-radium-component.git"
   },
   "author": "Ryan Roemer <ryan.roemer@formidablelabs.com>",
+  "contributors": [{
+    "name": "Tyler Thompson",
+    "email": "tyler.thompson@formidable.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FormidableLabs/builder-radium-component/issues"

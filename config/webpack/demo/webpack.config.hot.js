@@ -1,11 +1,13 @@
-import cloneDeep from 'lodash.clonedeep';
-import merge from 'lodash.merge';
-import omit from 'lodash.omit';
-import base from './webpack.config.dev.babel';
+'use strict';
+
+var cloneDeep = require('lodash.clonedeep');
+var merge = require('lodash.merge');
+var omit = require('lodash.omit');
+var base = require('./webpack.config.dev');
 
 // Clone our own module object.
-const mod = cloneDeep(base.module);
-const firstLoader = mod.loaders[0];
+var mod = cloneDeep(base.module);
+var firstLoader = mod.loaders[0];
 
 // Update loaders array. First loader needs react-hot-loader.
 firstLoader.loaders = [require.resolve('react-hot-loader')]
@@ -15,7 +17,7 @@ firstLoader.loaders = [require.resolve('react-hot-loader')]
 // Remove single loader if any.
 firstLoader.loader = null;
 
-export default merge({}, omit(base, 'entry', 'module'), {
+module.exports = merge({}, omit(base, 'entry', 'module'), {
   entry: {
     app: [
       require.resolve('webpack/hot/dev-server'),

@@ -1,5 +1,4 @@
 'use strict';
-require('babel-register');
 /*
  * Karma Configuration: 'full' version.
  *
@@ -8,7 +7,7 @@ require('babel-register');
  * CI environment or if you're not otherwise running `npm run dev|hot`.
  */
 var path = require('path');
-var webpackCfg = require('../webpack/webpack.config.test.babel');
+var webpackCfg = require('../webpack/webpack.config.test');
 
 var MAIN_PATH = path.join(process.cwd(), 'test/client/main.js');
 var PREPROCESSORS = {};
@@ -31,7 +30,7 @@ module.exports = function(config) {
       // Test bundle (created via local webpack-dev-server in this config).
       MAIN_PATH
     ],
-    webpack: webpackCfg.default,
+    webpack: webpackCfg,
     webpackServer: {
       port: 3002, // Choose a non-conflicting port (3000 app, 3001 test dev)
       quiet: false,

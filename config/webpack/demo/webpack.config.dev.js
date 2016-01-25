@@ -1,6 +1,6 @@
-import webpack from 'webpack';
+var webpack = require('webpack');
 
-export default {
+module.exports = {
   devServer: {
     contentBase: './demo',
     noInfo: false

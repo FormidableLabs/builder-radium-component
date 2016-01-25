@@ -1,14 +1,15 @@
+'use strict';
 /**
  * Webpack frontend test configuration.
  */
-import path from 'path';
-import merge from 'lodash.merge';
-import prodCfg from './webpack.config.babel';
+var path = require('path');
+var merge = require('lodash.merge');
+var prodCfg = require('./webpack.config');
 
 // Replace with `__dirname` if using in project root.
-const ROOT = process.cwd();
+var ROOT = process.cwd();
 
-export default {
+module.exports = {
   cache: true,
   context: path.join(ROOT, 'test/client'),
   entry: './main',

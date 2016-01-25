@@ -1,10 +1,11 @@
+'use strict';
 /**
  * Webpack frontend test (w/ coverage) configuration.
  */
-import merge from 'lodash.merge';
-import testCfg from './webpack.config.test.babel';
+var merge = require('lodash.merge');
+var testCfg = require('./webpack.config.test');
 
-export default merge({}, testCfg, {
+module.exports = merge({}, testCfg, {
   module: {
     preLoaders: [
       // Manually instrument client code for code coverage.

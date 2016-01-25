@@ -1,12 +1,11 @@
 'use strict';
-require('babel-register');
 /*
  * Karma Configuration: 'coverage' version.
  *
  * This configuration is the same as basic one-shot version, just with coverage.
  */
 var path = require('path');
-var webpackCovCfg = require('../webpack/webpack.config.coverage.babel');
+var webpackCovCfg = require('../webpack/webpack.config.coverage');
 
 // Replace with `__dirname` if using in project root.
 var ROOT = process.cwd();

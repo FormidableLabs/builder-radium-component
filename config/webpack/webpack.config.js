@@ -1,35 +1,28 @@
-import path from 'path';
-import webpack from 'webpack';
+'use strict';
+
+var path = require('path');
+var webpack = require('webpack');
 
 // Replace with `__dirname` if using in project root.
-const ROOT = process.cwd();
-
-// Get Paths to give node_modules by resolving based on assumed presence of
-// `package.json`.
-const _archNodeModules = arch => {
-  const archDir = path.dirname(
-    require.resolve(path.join(arch, 'package.json'))
-  );
-  return path.join(archDir, 'node_modules');
-};
+var ROOT = process.cwd();
 
 // **Little Hacky**: Infer the filename and library name from the package name.
 //
 // Assumptions:
 // - `package.json`'s `name` field is name of dist files.
 // - PascalCased version of that name is exported class name.
-const PKG = require(path.join(ROOT, 'package.json'));
-const libPath = (PKG.name || '').toLowerCase();
+var PKG = require(path.join(ROOT, 'package.json'));
+var libPath = (PKG.name || '').toLowerCase();
 if (!libPath) { throw new Error('Need package.json:name field'); }
 // PascalCase (with first character capitalized).
-const libName = libPath
+var libName = libPath
   .replace(/^\s+|\s+$/g, '')
   .replace(/(^|[-_ ])+(.)/g, (match, first, second) => {
     // Second match group is the character we want to change. Throw away first.
     return second.toUpperCase();
   });
 
-export default {
+module.exports = {
   cache: true,
   entry: path.join(ROOT, 'src/index.js'),
   externals: [
@@ -49,12 +42,7 @@ export default {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modulesDirectories: [
-      'node_modules',
-      _archNodeModules('builder-radium-component'),
-      _archNodeModules('builder-radium-component-dev')
-    ]
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
