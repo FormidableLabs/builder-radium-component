@@ -7,9 +7,7 @@ var config = require('./webpack.config');
 // We do this because lodash isn't available in `production` mode.
 config.output.filename = config.output.filename
   .replace(/\.min\.js$/, '.js');
-config.plugins = [
-  new webpack.SourceMapDevToolPlugin('[file].map')
-];
+config.devtool = 'cheap-module-eval-source-map';
 
 // Export mutated base.
 module.exports = config;
