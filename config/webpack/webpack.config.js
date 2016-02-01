@@ -17,7 +17,7 @@ if (!libPath) { throw new Error('Need package.json:name field'); }
 // PascalCase (with first character capitalized).
 var libName = libPath
   .replace(/^\s+|\s+$/g, '')
-  .replace(/(^|[-_ ])+(.)/g, (match, first, second) => {
+  .replace(/(^|[-_ ])+(.)/g, function(match, first, second) {
     // Second match group is the character we want to change. Throw away first.
     return second.toUpperCase();
   });
