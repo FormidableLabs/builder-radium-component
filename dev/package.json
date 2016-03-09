@@ -1,17 +1,17 @@
 {
-  "name": "builder-victory-component-dev",
+  "name": "builder-radium-component-dev",
   "version": "1.0.0",
-  "description": "Builder Archetype - Victory Component (Development)",
+  "description": "Builder Archetype - Radium Component (Development)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FormidableLabs/builder-victory-component.git"
+    "url": "https://github.com/FormidableLabs/builder-radium-component.git"
   },
   "author": "Ryan Roemer <ryan.roemer@formidablelabs.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FormidableLabs/builder-victory-component/issues"
+    "url": "https://github.com/FormidableLabs/builder-radium-component/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/builder-victory-component",
+  "homepage": "https://github.com/FormidableLabs/builder-radium-component",
   "scripts": {},
   "dependencies": {
     "babel-eslint": "^4.1.6",
