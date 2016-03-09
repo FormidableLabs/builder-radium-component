@@ -1,48 +1,40 @@
-var webpack = require('webpack');
+"use strict";
 
 module.exports = {
+
   devServer: {
-    contentBase: './demo',
+    contentBase: "./demo",
     noInfo: false
   },
 
   output: {
-    path: './demo',
-    filename: 'main.js',
-    publicPath: '/assets/'
+    path: "./demo",
+    filename: "main.js",
+    publicPath: "/assets/"
   },
 
   cache: true,
-  devtool: 'source-map',
+  devtool: "source-map",
   entry: {
-    app: ['./demo/app.jsx']
+    app: ["./demo/app.jsx"]
   },
   stats: {
     colors: true,
     reasons: true
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ["", ".js", ".jsx"]
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: [/node_modules/],
-        // **Note**: Cannot use shorthand `'babel-loader'` or `'babel'` when
+        // **Note**: Cannot use shorthand `"babel-loader"` or `"babel"` when
         // we are playing around with `NODE_PATH` in builder. Manually
         // resolve path.
-        loader: require.resolve('babel-loader')
-      }, {
-        test: /\.css$/,
-        loader: require.resolve('style-loader') + '!' + require.resolve('css-loader')
-      }, {
-        test: /\.(png|jpg)$/,
-        loader: require.resolve('url-loader') + '?limit=8192'
+        loader: require.resolve("babel-loader")
       }
     ]
-  },
-  plugins: [
-    new webpack.NoErrorsPlugin()
-  ]
+  }
 };

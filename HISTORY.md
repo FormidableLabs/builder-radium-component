@@ -1,50 +1,85 @@
 History
 =======
 
-## 0.1.4
+## 1.0.0
+* Upgrade to Babel 6
 
-* Ensure webpack exits with status 1 on errors
+## 0.2.3
 
-## 0.1.3
+* Revert move build dependencies to dev package
+  - CI jobs still depend on build deps existing in production mode.
 
-* Use to [`builder-support`](https://github.com/FormidableLabs/builder-support)
-  to generate `dev/package.json` and add `README.md` to dev module.
-  [#7](https://github.com/FormidableLabs/builder-radium-component/issues/7)
-  [#8](https://github.com/FormidableLabs/builder-radium-component/issues/8)
-* Switch to `cd lib ||` test for `npm:postinstall` task.
-* Fix bug for `require.resolve`-ing "css" loader.
-  [#15](https://github.com/FormidableLabs/builder-radium-component/issues/15)
+## 0.2.2
+
+* Move build dependencies to dev package
+* Update documentation
+
+## 0.2.1
+
+* Add `server-docs` task that starts a http-server for to test built static `docs/` site
+* Remove `test` task in archetype `scripts` section, opening up for projects to implement `npm test` tasks that don't clash with the archetype.
+* Remove `peerDependencies` and unneeded `devDependencies`. Add documentation instead.
+* Use `builder-support` for publishing dev archetype
+
+## 0.2.0
+
+* Remove application dependencies (`lodash`, `radium`) - it's now the responsibility of each Victory component to bring dependencies.
+* Add `peerDependencies` (`builder`, `radium`, `react`, `react-dom`).
 
 ## 0.1.2
 
-* Fix demo hot loader webpack configuration. ( [@coopy][] )
+* Fix hot reload configuration
 
 ## 0.1.1
 
-* Copy non-JS files in babel build step. ( [@hartmamt][] )
+* Don't `git add -A dist` in the `npm:version` task. `dist/` should not be committed, just published along with `lib/` to NPM.
 
 ## 0.1.0
 
-* Switch to `ARCHETYPE` + `ARCHETYPE-dev` model for dependencies.
+* Upgrade to Radium 0.16.2 with server-side-rendered media queries.
+  This is a breaking change; Please refer to the [Radium upgrade guide][radium-0.16-upgrade-guide]
+* Add DEVELOPMENT, CONTRIBUTION guides for Victory
+
+## 0.0.9
+
+* Ensure webpack exits with status 1 on errors
+
+## 0.0.8
+
+* Fix issue with exported React global in UMD distribution bundle
+  - Enables use of Victory via e.g. NPMCDN
+
+## 0.0.7
+
+* Build both `dist/` and `lib/` on `postinstall`
+
+## 0.0.6
+
+* Fix issue with `builder docs-*` output paths
+
+## 0.0.5
+
+* Add raw-loader and react-docgen to support building Ecology docs
 
 ## 0.0.4
 
-* Switch to project root `.babelrc` instead of from archetype until fixed
-  upstream. ( [@exogen][] )
+*  this release
+  - removes references to removed webpack loaders (style, url etc)
+  - corrects the paths for new doc scripts
+  - adds `push-gh-pages` script
 
 ## 0.0.3
 
-* Infer component name off `package.json:name` instead of `src/index.js`.
+* test release
 
 ## 0.0.2
 
-* Fix dependency bug.
+* Release according to the [fine manual][]
 
 ## 0.0.1
 
-* Initial release.
+* Initial release. ( [@coopy][] )
 
 [@coopy]: https://github.com/coopy
-[@exogen]: https://github.com/exogen
-[@hartmamt]: https://github.com/hartmamt
-[@ryan-roemer]: https://github.com/ryan-roemer
+[fine manual]: https://github.com/FormidableLabs/builder-victory-component/blob/master/CONTRIBUTING.md
+[radium-0.16-upgrade-guide]: https://github.com/FormidableLabs/radium/blob/master/docs/guides/upgrade-v0.16.x.md

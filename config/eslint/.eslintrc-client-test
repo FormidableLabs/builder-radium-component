@@ -9,7 +9,3 @@ env:
 globals:
   expect: false
 
-rules:
-  no-unused-expressions: 0
-  no-magic-numbers: 0
-  max-statements: 0

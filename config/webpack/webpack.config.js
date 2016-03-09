@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-var path = require('path');
-var webpack = require('webpack');
+var path = require("path");
+var webpack = require("webpack");
 
 // Replace with `__dirname` if using in project root.
 var ROOT = process.cwd();
@@ -12,13 +12,13 @@ var SRC = path.join(ROOT, "src");
 // Assumptions:
 // - `package.json`'s `name` field is name of dist files.
 // - PascalCased version of that name is exported class name.
-var PKG = require(path.join(ROOT, 'package.json'));
-var libPath = (PKG.name || '').toLowerCase();
-if (!libPath) { throw new Error('Need package.json:name field'); }
+var PKG = require(path.join(ROOT, "package.json"));
+var libPath = (PKG.name || "").toLowerCase();
+if (!libPath) { throw new Error("Need package.json:name field"); }
 // PascalCase (with first character capitalized).
 var libName = libPath
-  .replace(/^\s+|\s+$/g, '')
-  .replace(/(^|[-_ ])+(.)/g, function(match, first, second) {
+  .replace(/^\s+|\s+$/g, "")
+  .replace(/(^|[-_ ])+(.)/g, function (match, first, second) {
     // Second match group is the character we want to change. Throw away first.
     return second.toUpperCase();
   });
@@ -26,25 +26,25 @@ var libName = libPath
 module.exports = {
   cache: true,
   context: SRC,
-  entry: path.join(ROOT, 'src/index.js'),
+  entry: "./index.js",
   externals: [
     {
-      'react': {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react'
+      "react": {
+        root: "React",
+        commonjs2: "react",
+        commonjs: "react",
+        amd: "react"
       }
     }
   ],
   output: {
-    path: path.join(ROOT, 'dist'),
-    filename: libPath + '.min.js',
+    path: path.join(ROOT, "dist"),
+    filename: libPath + ".min.js",
     library: libName,
-    libraryTarget: 'umd'
+    libraryTarget: "umd"
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ["", ".js", ".jsx"]
   },
   module: {
     loaders: [
@@ -53,16 +53,10 @@ module.exports = {
         // Use include specifically of our sources.
         // Do _not_ use an `exclude` here.
         include: [SRC],
-        // **Note**: Cannot use shorthand `'babel-loader'` or `'babel'` when
+        // **Note**: Cannot use shorthand `"babel-loader"` or `"babel"` when
         // we are playing around with `NODE_PATH` in builder. Manually
         // resolve path.
-        loader: require.resolve('babel-loader'),
-      }, {
-        test: /\.css$/,
-        loader: require.resolve('style-loader') + '!' + require.resolve('css-loader')
-      }, {
-        test: /\.(png|jpg)$/,
-        loader: require.resolve('url-loader') + '?limit=8192'
+        loader: require.resolve("babel-loader")
       }
     ]
   },

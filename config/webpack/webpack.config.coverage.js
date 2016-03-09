@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 /**
  * Webpack frontend test (w/ coverage) configuration.
  */
-var merge = require('lodash.merge');
-var testCfg = require('./webpack.config.test');
+var _ = require("lodash"); // devDependency
+var testCfg = require("./webpack.config.test");
 
-module.exports = merge({}, testCfg, {
+module.exports = _.merge({}, testCfg, {
   module: {
     preLoaders: [
       // Manually instrument client code for code coverage.
@@ -13,7 +13,7 @@ module.exports = merge({}, testCfg, {
       {
         test: /src\/.*\.jsx?$/,
         exclude: /(test|node_modules)\//,
-        loader: require.resolve('isparta-loader')
+        loader: require.resolve("isparta-loader")
       }
     ]
   }

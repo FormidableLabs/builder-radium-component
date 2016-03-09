@@ -1,3 +1,2 @@
 ---
 # Any base overrides can go here.
-parser: "babel-eslint"

@@ -21,14 +21,13 @@ Run `npm run builder:check`
 
 ## Documentation
 
-To generate the usage snippet in the `README.md`, first go to a project
-that _uses_ the archetype and then run:
+To generate the usage snippet in the `README.md`, first go to a project that _uses_ the archetype and then run:
 
 ```sh
-$ builder help builder-radium-component | egrep "^[^\[]|^$"
+$ builder help builder-victory-component
 ```
 
-in any project where this archetype is installed and paste in the output.
+Then paste in the output. Auto-generating the usage snippet is coming! See https://github.com/FormidableLabs/builder/issues/12.
 
 ## Release
 
