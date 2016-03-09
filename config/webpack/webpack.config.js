@@ -5,6 +5,7 @@ var webpack = require('webpack');
 
 // Replace with `__dirname` if using in project root.
 var ROOT = process.cwd();
+var SRC = path.join(ROOT, "src");
 
 // **Little Hacky**: Infer the filename and library name from the package name.
 //
@@ -24,6 +25,7 @@ var libName = libPath
 
 module.exports = {
   cache: true,
+  context: SRC,
   entry: path.join(ROOT, 'src/index.js'),
   externals: [
     {
@@ -42,27 +44,19 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: [/node_modules/],
+        // Use include specifically of our sources.
+        // Do _not_ use an `exclude` here.
+        include: [SRC],
         // **Note**: Cannot use shorthand `'babel-loader'` or `'babel'` when
         // we are playing around with `NODE_PATH` in builder. Manually
         // resolve path.
         loader: require.resolve('babel-loader'),
-        query: {
-          babelrc: false,
-          presets: ['es2015-webpack', 'stage-2', 'react'],
-          plugins: [
-            'syntax-class-properties',
-            'syntax-decorators',
-            'transform-class-properties',
-            'transform-decorators-legacy'
-          ]
-        }
       }, {
         test: /\.css$/,
         loader: require.resolve('style-loader') + '!' + require.resolve('css-loader')
@@ -81,9 +75,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       // Signal production, so that webpack removes non-production code that
-      // is in condtionals like: `if (process.env.NODE_ENV === 'production')`
-      'process.env.NODE_ENV': JSON.stringify('production')
+      // is in condtionals like: `if (process.env.NODE_ENV === "production")`
+      "process.env.NODE_ENV": JSON.stringify("production")
     }),
-    new webpack.SourceMapDevToolPlugin({filename: '[file].map'})
+    new webpack.SourceMapDevToolPlugin({filename: "[file].map"})
   ]
 };
