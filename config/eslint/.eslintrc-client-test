@@ -9,3 +9,5 @@ env:
 globals:
   expect: false
 
+rules:
+  no-magic-numbers: 0

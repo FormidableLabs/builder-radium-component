@@ -1,2 +1,16 @@
----
-# Any base overrides can go here.
+{
+  "plugins": [
+    "flow-vars"
+  ],
+  "rules": {
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1,
+    "no-arrow-condition": 0,
+    "no-confusing-arrow": [2, {"allowParens": false}],
+    "no-magic-numbers": [2, {
+      "ignoreArrayIndexes": true,
+      "ignore": [-1, 0, 1, 2]
+    }],
+    "no-use-before-define": 0
+  }
+}
