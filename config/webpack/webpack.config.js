@@ -36,6 +36,14 @@ module.exports = {
         commonjs: "react",
         amd: "react"
       }
+    },
+    {
+      "radium": {
+        root: "Radium",
+        commonjs2: "radium",
+        commonjs: "radium",
+        amd: "radium"
+      }
     }
   ],
   output: {
