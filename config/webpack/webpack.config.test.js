@@ -29,7 +29,8 @@ module.exports = {
   externals: {
     "cheerio": "window",
     "react/lib/ExecutionEnvironment": true,
-    "react/lib/ReactContext": true
+    "react/lib/ReactContext": true,
+    "react/addons": true
   },
   module: _.assign({}, prodCfg.module, {
     // enzyme webpack issue https://github.com/airbnb/enzyme/issues/47
