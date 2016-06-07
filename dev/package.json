@@ -1,6 +1,6 @@
 {
   "name": "builder-radium-component-dev",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Builder Archetype - Radium Component (Development)",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "eslint-plugin-filenames": "^0.2.0",
     "eslint-plugin-flow-vars": "^0.2.1",
     "eslint-plugin-react": "^4.2.3",
-    "formidable-landers": "0.1.0",
+    "formidable-landers": "^2.0.0",
     "http-server": "^0.9.0",
     "isparta-loader": "^2.0.0",
     "karma": "^0.13.9",
